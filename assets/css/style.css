@@ -1,0 +1,22 @@
+@import "components/banner.css";
+@import "components/presentation.css";
+@import "components/button.css";
+@import "components/link.css";
+
+@font-face {
+  src: url("../fonts/linux_libertine/LinLibertine_R.ttf");
+  font-family: 'Linux_libertine_R'; }
+
+@font-face {
+  src: url("../fonts/linux_libertine/LinLibertine_DR.ttf");
+  font-family: 'Linux_libertine_RB'; }
+
+.about {
+  padding: 30px 0px;
+  background-color: #eee; }
+  .about .logo {
+    text-align: center; }
+  .about .social {
+    text-align: right; }
+  .about .contact-us {
+    text-align: left; }

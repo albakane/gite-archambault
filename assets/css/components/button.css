@@ -1,0 +1,15 @@
+.button {
+  transition: all 0.2s;
+  padding: 10px 30px;
+  font-size: 3rem;
+  text-decoration: none;
+  font-family: 'Helvetica Neue', sans-serif; }
+  .button.button-gold {
+    color: #fff;
+    background-color: #F6D38F; }
+  .button.button-gold:hover {
+    text-decoration: none;
+    background-color: #BC9954; }
+  .button.button-gold:focus, .button.button-gold:active {
+      text-decoration: none;
+      background-color: #F6D38F; }
