@@ -1,15 +1,57 @@
-.button {
-  transition: all 0.2s;
-  padding: 10px 30px;
-  font-size: 3rem;
-  text-decoration: none;
-  font-family: 'Helvetica Neue', sans-serif; }
-  .button.button-gold {
-    color: #fff;
-    background-color: #F6D38F; }
-  .button.button-gold:hover {
-    text-decoration: none;
-    background-color: #BC9954; }
-  .button.button-gold:focus, .button.button-gold:active {
-      text-decoration: none;
-      background-color: #F6D38F; }
+@media all and (max-width: 480px) {
+
+}
+
+@media all and (max-width: 768px) {
+
+}
+
+@media all and (max-width: 1024px) {
+  .button {
+    transition: all 0.2s;
+    padding: 10px 30px;
+     font-size: 3rem;
+     text-decoration: none;
+     font-family: 'Helvetica Neue', sans-serif; }
+
+     /* Gold button */
+     .button.button-gold {
+       color: #fff;
+       background-color: #f6d38f; }
+     .button.button-gold:hover {
+       text-decoration: none;
+       background-color: #bc9954; }
+     .button.button-gold:focus, .button.button-gold:active {
+       text-decoration: none;
+       background-color: #f6d38f; }
+}
+
+@media all and (min-width: 1200px) {
+  .button {
+    transition: all 0.2s;
+    padding: 10px 30px;
+     font-size: 3rem;
+     text-decoration: none;
+     font-family: 'Helvetica Neue', sans-serif; }
+
+     /* Gold button */
+     .button.button-gold {
+       color: #fff;
+       background-color: #f6d38f; }
+     .button.button-gold:hover {
+       text-decoration: none;
+       background-color: #bc9954; }
+     .button.button-gold:focus, .button.button-gold:active {
+       text-decoration: none;
+       background-color: #f6d38f; }
+
+     /* White button */
+     .button.button-white {
+       transition: all 0.2s;
+       color: #fff;
+       background-color: transparent;
+       border: 3px solid #fff; }
+     .button.button-white:hover {
+       border-radius: 13% / 50%;
+       text-decoration: none; }
+}

@@ -1,0 +1,39 @@
+@media all and (max-width: 480px) {
+
+}
+
+@media all and (max-width: 768px) {
+
+}
+
+@media all and (max-width: 1024px) {
+  .about {
+    background-color: #eee;
+    padding: 30px 0px; }
+    .about .logo {
+      text-align: center; }
+    .about .social {
+      text-align: right; }
+    .about .contact-us {
+      text-align: left; }
+}
+
+@media all and (min-width: 1200px) {
+  .about {
+    background-color: #eee;
+    padding: 15px 0px; }
+    .about .logo {
+      text-align: center; }
+      .about .logo img {
+        width: 100px; height: 100px; }
+    .about .social {
+      text-align: right; }
+      .about .social h1 {
+        margin-top: 0px;
+        font-size: 2rem; }
+    .about .contact-us {
+      text-align: left; }
+      .about .contact-us h1 {
+        margin-top: 0px;
+        font-size: 2rem; }
+}

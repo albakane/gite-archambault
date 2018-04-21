@@ -1,0 +1,28 @@
+@media all and (max-width: 480px) {
+
+}
+
+@media all and (max-width: 768px) {
+
+}
+
+@media all and (max-width: 1024px) {
+
+}
+
+@media all and (min-width: 1200px) {
+  .activities {
+    background-image: url("../../images/joute_red_effect.jpg");
+    background-repeat: no-repeat;
+    background-position: 20% 20%;
+    background-size: cover; }
+    .activities .content-side {
+      width: 40%; height: auto;
+      text-align: justify;
+      margin: 50px 50px; }
+      .activities .content-side .content {
+        text-shadow: 0px 0px 20px #000;
+        color: #fff; }
+        .activities .content-side .content .text {
+          margin: 30px 0px; }
+}
