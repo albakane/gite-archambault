@@ -85,4 +85,16 @@ document.addEventListener('DOMContentLoaded', function () {
     slidesVisible : 3
   })
 
+  let voirPlus = document.querySelector('#voir-plus')
+  let returnPresentation = document.querySelector('#return-presentation')
+
+  voirPlus.addEventListener('click', function () {
+    document.querySelector('#under-presentation').classList.add('clicked')
+    voirPlus.style.display = "none"
+  })
+
+  returnPresentation.addEventListener('click', function () {
+    document.querySelector('#under-presentation').classList.remove('clicked')
+  })
+
 })
