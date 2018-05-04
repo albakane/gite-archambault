@@ -12,9 +12,139 @@
   crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous" async></script>
   <script src="assets/javascript/main.js" charset="utf-8"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYC9Vc1IshWi1gUgNG0n75x7DEQ5XfkKU&callback=initMap" charset="utf-8"></script>
+  <script type="text/javascript">
+    function initMap() {
+      var leClosAudy = {
+        lat : 47.591641,
+        lng : 1.453239
+      }
+      var map = new google.maps.Map(document.querySelector('#map'), {
+        zoom   : 12,
+        center : leClosAudy,
+        styles : [
+          {elementType : 'geometry', stylers : [{color : '#242F3E'}]},
+          {elementType : 'labels.text.stroke', stylers : [{color : '#242F3E'}]},
+          {elementType : 'labels.text.fill', stylers : [{color : '#746855'}]},
+          {
+            featureType : 'administrative.locality',
+            elementType : 'labels.text.fill',
+            stylers     : [{color : '#D59563'}]
+          },
+          {
+            featureType : 'poi',
+            elementType : 'labels.text.fill',
+            stylers     : [{color : '#D59563'}]
+          },
+          {
+            featureType: 'poi.park',
+            elementType: 'geometry',
+            stylers: [{color: '#263c3f'}]
+          },
+          {
+            featureType: 'poi.park',
+            elementType: 'labels.text.fill',
+            stylers: [{color: '#6b9a76'}]
+          },
+          {
+            featureType: 'road',
+            elementType: 'geometry',
+            stylers: [{color: '#38414e'}]
+          },
+          {
+            featureType: 'road',
+            elementType: 'geometry.stroke',
+            stylers: [{color: '#212a37'}]
+          },
+          {
+            featureType: 'road',
+            elementType: 'labels.text.fill',
+            stylers: [{color: '#9ca5b3'}]
+          },
+          {
+            featureType: 'road.highway',
+            elementType: 'geometry',
+            stylers: [{color: '#746855'}]
+          },
+          {
+            featureType: 'road.highway',
+            elementType: 'geometry.stroke',
+            stylers: [{color: '#1f2835'}]
+          },
+          {
+            featureType: 'road.highway',
+            elementType: 'labels.text.fill',
+            stylers: [{color: '#f3d19c'}]
+          },
+          {
+            featureType: 'transit',
+            elementType: 'geometry',
+            stylers: [{color: '#2f3948'}]
+          },
+          {
+            featureType: 'transit.station',
+            elementType: 'labels.text.fill',
+            stylers: [{color: '#d59563'}]
+          },
+          {
+            featureType: 'water',
+            elementType: 'geometry',
+            stylers: [{color: '#17263c'}]
+          },
+          {
+            featureType: 'water',
+            elementType: 'labels.text.fill',
+            stylers: [{color: '#515c6d'}]
+          },
+          {
+            featureType: 'water',
+            elementType: 'labels.text.stroke',
+            stylers: [{color: '#17263c'}]
+          }
+        ]
+      })
+      var marker = new google.maps.Marker({
+        position : leClosAudy,
+        map      : map
+      })
+    }
+  </script>
+  <style media="screen">
+    #map {
+      width: 100%; height: 400px;
+    }
+  </style>
   <body>
+
+    <nav id="mainMenu" class="navbar navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="#banner" class="navbar-brand">Le clos Audy</a>
+        </div>
+        <div class="collapse navbar-collapse navbar-right">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="#presentation">information</a>
+            </li>
+            <li>
+              <a href="#activities">activités</a>
+            </li>
+            <li>
+              <a href="#photos">photos</a>
+            </li>
+            <li>
+              <a href="#reservation">réservation</a>
+            </li>
+            <li>
+              <a href="#contact">contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
     <!-- Bannière -->
-    <div class="banner">
+    <div id="banner" class="banner">
       <div class="banner-content">
         <img src="assets/svg/logo.svg" alt="logo-archambault" width="200" height="200">
         <div class="banner-text">
@@ -34,17 +164,17 @@
           <h1>LE CLOS AUDY</h1>
           <p>Au coeur du bourg, clos de murs et derrière une porte cochère, vous découvrirez une agréable cour pavée toujours fleurie au fil des saisons par les camélias, hortensais, glycines, rosiers et chèvre-feuilles. Notre gîte de charme de 75m² récemment rénové dans une demeure du XVIII ème est un lieu paisible et authentique, offrant tout le confort et meublé avec soin, pouvant accueillir une famille de 4 à 5 personnes.</p>
           <p>Il est situé au 1er étage d'une dépendance attenante à la résidence des propriétaires. De la cour commune, vous accédez par une entrée indépendante à l'appartement soit en empruntant un escalier ou un ascenseur intérieur pour les personnes à mobilité réduite. Le gîte se compose ensuite d'une entrée, d'un coin cuisine donnant sur le sejour-salle à manger, d'une grande chambre, une salle d'eau et wc indépendant.</p>
-          <a id="voir-plus" href="#presentation" class="button button-gold">VOIR PLUS</a>
+          <a id="voir-plus" href="#under-presentation" class="button button-gold">VOIR PLUS</a>
         </div>
       </div>
     </div>
 
     <div id="under-presentation" class="under-presentation under-presentation-information">
       <div class="container">
-        <h1>Tarif de location du gîte "Le clos Audy (Saison 2018)"</h1>
+        <h1>Tarif de location du gîte "Le clos Audy" (Saison 2018)</h1>
         <h2>Informations complémentaires sur la location</h2>
-        <p>La réservation sera effective au retour du contrat de location signé accompagné d'un accompte de 25% du montant de la location.
-        Une affirmation sera addressée par mail ou courrier. Le solde de la location sera demandé à l'arrivée. Une caution de 500 € sera demandée à l'arrivée et sera restituée au départ après état des lieux et déduction faite des frais occasionnés par d'éventuelles dégradations.
+        <p>La réservation sera effective au retour du contrat de location signé accompagné d'un acompte de 25% du montant de la location.
+        Une affirmation sera adressée par mail ou courrier. Le solde de la location sera demandé à l'arrivée. Une caution de 500 € sera demandée à l'arrivée et sera restituée au départ après état des lieux et déduction faite des frais occasionnés par d'éventuelles dégradations.
         La taxe de séjour perçue pour le compte du syndicat du Pays des châteaux est à rajouter au prix de la location, soit 0,30 € par nuit et pour toute personne ayant plus de 16 ans.
         Un supplément au prorata sera demandé en cas de dépassement de la capacité du gîte.</p>
         <p>Le prix de la location comprend :</p>
@@ -78,8 +208,8 @@
     </div>
 
     <!-- Activités -->
-    <div class="activities container-fluid">
-      <div class="col-lg-6 content-side">
+    <div id="activities" class="activities container-fluid">
+      <div class="col-lg-7 content-side">
         <div class="content">
           <h1>DECOUVREZ LES SOMPTUEUX CHATEAUX DE LA LOIRE</h1>
           <div class="text">
@@ -87,12 +217,12 @@
             <p>Ne manquez pas une occasion de sortir et découvrez les évènements de la région tout au long de l'année.</p>
           </div>
         </div>
-        <a href="#" class="button button-white">DECOUVRIR</a>
+        <a href="#activities" class="button button-white">DECOUVRIR</a>
       </div>
     </div>
 
     <!-- Carousel portfolio -->
-    <div class="photos">
+    <div id="photos" class="photos">
       <h1>Photos</h1>
       <div id="portfolio" class="portfolio">
         <img src="assets/images/dependance.jpg" alt="dépendance">
@@ -107,8 +237,42 @@
       </div>
     </div>
 
+    <div id="contact" class="contact">
+      <div class="container">
+        <h1>Nous contacter</h1>
+        <div class="col-lg-6">
+          <div id="map">
+
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="double-link">
+            <img src="assets/svg/home.svg" alt="">
+            <div class="double-link-content">
+              <span>Adresse postale</span>
+              <p>12 rue du Dr Audy, 41 350 Huisseau-sur-Cosson</p>
+            </div>
+          </div>
+          <div class="double-link">
+            <img src="assets/svg/mail.svg" alt="">
+            <div class="double-link-content">
+              <span>Adresse mail</span>
+              <a href="#">unmailaupif@gmail.com</a>
+            </div>
+          </div>
+          <div class="double-link">
+            <img src="assets/svg/telephone.svg" alt="">
+            <div class="double-link-content">
+              <span>Téléphone</span>
+              <p>+336 48 15 16 23 42</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Reservation -->
-    <div class="presentation container-fluid">
+    <div id="reservation" class="presentation container-fluid">
       <div class="col-lg-6 text-side">
         <div class="content">
           <h1>RESERVEZ EN LIGNE</h1>
@@ -118,12 +282,12 @@
         </div>
       </div>
       <div class="col-lg-6 picture-side">
-        <img src="assets/images/chambord-2.jpg" alt="chambord" width="100%">
+        <img src="assets/images/chaumont.jpg" alt="chambord" width="100%">
       </div>
     </div>
 
     <!-- About -->
-    <footer class="about">
+    <footer id="about" class="about">
       <div class="container">
         <div class="content contact-us col-lg-4">
           <h1>CONTACTEZ-NOUS</h1>

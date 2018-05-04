@@ -6,6 +6,7 @@
 @import "components/activities.css";
 @import "components/carousel.css";
 @import "components/under-presentation.css";
+@import "components/navbar.css";
 
 @font-face {
   src: url("../fonts/linux_libertine/LinLibertine_R.ttf");
@@ -14,3 +15,19 @@
 @font-face {
   src: url("../fonts/linux_libertine/LinLibertine_DR.ttf");
   font-family: 'Linux_libertine_RB'; }
+
+@media all and (max-width: 480px) {
+
+}
+
+@media all and (max-width: 768px) {
+
+}
+
+@media all and (max-width: 1024px) {
+
+}
+
+@media all and (max-width: 1320px) {
+  
+}
