@@ -21,87 +21,7 @@
       }
       var map = new google.maps.Map(document.querySelector('#map'), {
         zoom   : 12,
-        center : leClosAudy,
-        styles : [
-          {elementType : 'geometry', stylers : [{color : '#242F3E'}]},
-          {elementType : 'labels.text.stroke', stylers : [{color : '#242F3E'}]},
-          {elementType : 'labels.text.fill', stylers : [{color : '#746855'}]},
-          {
-            featureType : 'administrative.locality',
-            elementType : 'labels.text.fill',
-            stylers     : [{color : '#D59563'}]
-          },
-          {
-            featureType : 'poi',
-            elementType : 'labels.text.fill',
-            stylers     : [{color : '#D59563'}]
-          },
-          {
-            featureType: 'poi.park',
-            elementType: 'geometry',
-            stylers: [{color: '#263c3f'}]
-          },
-          {
-            featureType: 'poi.park',
-            elementType: 'labels.text.fill',
-            stylers: [{color: '#6b9a76'}]
-          },
-          {
-            featureType: 'road',
-            elementType: 'geometry',
-            stylers: [{color: '#38414e'}]
-          },
-          {
-            featureType: 'road',
-            elementType: 'geometry.stroke',
-            stylers: [{color: '#212a37'}]
-          },
-          {
-            featureType: 'road',
-            elementType: 'labels.text.fill',
-            stylers: [{color: '#9ca5b3'}]
-          },
-          {
-            featureType: 'road.highway',
-            elementType: 'geometry',
-            stylers: [{color: '#746855'}]
-          },
-          {
-            featureType: 'road.highway',
-            elementType: 'geometry.stroke',
-            stylers: [{color: '#1f2835'}]
-          },
-          {
-            featureType: 'road.highway',
-            elementType: 'labels.text.fill',
-            stylers: [{color: '#f3d19c'}]
-          },
-          {
-            featureType: 'transit',
-            elementType: 'geometry',
-            stylers: [{color: '#2f3948'}]
-          },
-          {
-            featureType: 'transit.station',
-            elementType: 'labels.text.fill',
-            stylers: [{color: '#d59563'}]
-          },
-          {
-            featureType: 'water',
-            elementType: 'geometry',
-            stylers: [{color: '#17263c'}]
-          },
-          {
-            featureType: 'water',
-            elementType: 'labels.text.fill',
-            stylers: [{color: '#515c6d'}]
-          },
-          {
-            featureType: 'water',
-            elementType: 'labels.text.stroke',
-            stylers: [{color: '#17263c'}]
-          }
-        ]
+        center : leClosAudy
       })
       var marker = new google.maps.Marker({
         position : leClosAudy,
@@ -225,15 +145,21 @@
     <div id="photos" class="photos">
       <h1>Photos</h1>
       <div id="portfolio" class="portfolio">
-        <img src="assets/images/dependance.jpg" alt="dépendance">
-        <img src="assets/images/grande_chambre.jpg" alt="grande chambre">
-        <img src="assets/images/salle_a_manger.jpg" alt="salle à manger">
-        <img src="assets/images/sejour.jpg" alt="séjour">
-        <img src="assets/images/sejour_2.jpg" alt="séjour">
-        <img src="assets/images/ascenseur.jpg" alt="ascenseur">
-        <img src="assets/images/alcove.jpg" alt="alcove">
-        <img src="assets/images/couloir_entree.jpg" alt="couloir">
-        <img src="assets/images/entre_dependance_glycine.jpg" alt="glycine">
+        <img src="assets/images/dependance.jpg" alt="La dépendance">
+        <img src="assets/images/grande_chambre.jpg" alt="La grande chambre">
+        <img src="assets/images/salle_a_manger.jpg" alt="La salle à manger">
+        <img src="assets/images/sejour.jpg" alt="Le séjour">
+        <img src="assets/images/sejour_2.jpg" alt="Le séjour">
+        <img src="assets/images/ascenseur.jpg" alt="L'ascenseur">
+        <img src="assets/images/alcove.jpg" alt="L'alcove">
+        <img src="assets/images/couloir_entree.jpg" alt="Le couloir">
+        <img src="assets/images/entre_dependance_glycine.jpg" alt="La glycine">
+        <img src="assets/images/banc_cour.jpg" alt="côté de la cour">
+        <img src="assets/images/coin_repas.jpg" alt="Le coin repas">
+        <img src="assets/images/cote_cour.jpg" alt="côté cour vue de l'entrée du gîte">
+        <img src="assets/images/cote_jardin.jpg" alt="côté jardin">
+        <img src="assets/images/cuisine.jpg" alt="La cuisine équipée">
+        <img src="assets/images/maison_hote.jpg" alt="La maison de l'hôte">
       </div>
     </div>
 

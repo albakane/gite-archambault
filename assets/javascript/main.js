@@ -106,8 +106,10 @@ class CarouselHover {
     let carouselContainer = document.querySelector('.carousel-container').cloneNode(true)
     let children = [].slice.call(carouselContainer.children)
     this.items = children.map((child) => {
+      console.log(child.children[0].alt)
       child.classList.remove('carousel-item')
       child.classList.add('carousel-hover-item')
+      child.innerHTML += '<p>' + child.children[0].alt + '</p>'
       this.carouselHoverContainer.appendChild(child)
       return child
     })
