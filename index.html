@@ -19,21 +19,46 @@
         lat : 47.591641,
         lng : 1.453239
       }
+      var flightPlanCoordinates = [
+        {lat : 47.5828745, lng : 1.3315156},
+        {lat : 47.6154998, lng : 1.5155351},
+        {lat : 47.5112682, lng : 1.4560066},
+        {lat : 47.5828745, lng : 1.3315156}
+      ]
+      var flightPath = new google.maps.Polyline({
+        path : flightPlanCoordinates,
+        geodesic : true,
+        strokeColor : '#f6d38f',
+        strokeWeight : 6
+      })
+      var contentString = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h1 id="firstHeading" class="firstHeading">Le clos Audy</h1>'+
+        '<div id="bodyContent">'+
+        '<p><b>Adresse</b> : 12 rue du Dr Audy, 41350 Huisseau-sur-Cosson</p>'+
+        '<p><b>Numéro de téléphone</b> : +336 48 15 16 23 42</p>'+
+        '<p><b>Email</b> : <a href="mailto:unmailaupif@gmail.com">unmailaupif@gmail.com</a></p>'+
+        '</div>'+
+        '</div>'
+      var infowindow = new google.maps.InfoWindow({
+        content: contentString
+      })
       var map = new google.maps.Map(document.querySelector('#map'), {
         zoom   : 12,
         center : leClosAudy
       })
+      // flightPath.setMap(map)
       var marker = new google.maps.Marker({
         position : leClosAudy,
         map      : map
       })
+      marker.addListener('click', function () {
+        infowindow.open(map, marker)
+      })
+      infowindow.open(map, marker)
     }
   </script>
-  <style media="screen">
-    #map {
-      width: 100%; height: 400px;
-    }
-  </style>
   <body>
 
     <nav id="mainMenu" class="navbar navbar-fixed-top">
@@ -163,7 +188,11 @@
       </div>
     </div>
 
-    <div id="contact" class="contact">
+    <div class="contact">
+      <div class="map" id="map"></div>
+    </div>
+
+    <!-- <div id="contact" class="contact">
       <div class="container">
         <h1>Nous contacter</h1>
         <div class="col-lg-6">
@@ -195,7 +224,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- Reservation -->
     <div id="reservation" class="presentation container-fluid">

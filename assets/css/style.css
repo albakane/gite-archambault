@@ -7,6 +7,7 @@
 @import "components/carousel.css";
 @import "components/under-presentation.css";
 @import "components/navbar.css";
+@import "components/contact.css";
 
 @font-face {
   src: url("../fonts/linux_libertine/LinLibertine_R.ttf");
@@ -29,5 +30,5 @@
 }
 
 @media all and (max-width: 1320px) {
-  
+
 }
