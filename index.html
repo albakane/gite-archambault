@@ -3,14 +3,12 @@
   <head>
     <meta charset="utf-8">
     <title>Le clos audy - Gîtes Archambault</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="assets/svg/logo-dark.svg">
   </head>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.js"
-  integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="
-  crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous" async></script>
+  <script src="assets/javascript/jquery.js"></script>
+  <script src="assets/javascript/bootstrap.min.js"></script>
   <script src="assets/javascript/main.js" charset="utf-8"></script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYC9Vc1IshWi1gUgNG0n75x7DEQ5XfkKU&callback=initMap" charset="utf-8"></script>
   <script type="text/javascript">
@@ -37,8 +35,8 @@
         '<h1 id="firstHeading" class="firstHeading">Le clos Audy</h1>'+
         '<div id="bodyContent">'+
         '<p><b>Adresse</b> : 12 rue du Dr Audy, 41350 Huisseau-sur-Cosson</p>'+
-        '<p><b>Numéro de téléphone</b> : +336 48 15 16 23 42</p>'+
-        '<p><b>Email</b> : <a href="mailto:unmailaupif@gmail.com">unmailaupif@gmail.com</a></p>'+
+        '<p><b>Numéro de téléphone</b> : +33 6 79 81 65 79</p>'+
+        '<p><b>Email</b> : <a href="mailto:leclos.audy@orange.fr">leclos.audy@orange.fr</a></p>'+
         '</div>'+
         '</div>'
       var infowindow = new google.maps.InfoWindow({
@@ -59,6 +57,7 @@
       infowindow.open(map, marker)
     }
   </script>
+
   <body>
 
     <nav id="mainMenu" class="navbar navbar-fixed-top">
@@ -109,7 +108,7 @@
           <h1>LE CLOS AUDY</h1>
           <p>Au coeur du bourg, clos de murs et derrière une porte cochère, vous découvrirez une agréable cour pavée toujours fleurie au fil des saisons par les camélias, hortensais, glycines, rosiers et chèvre-feuilles. Notre gîte de charme de 75m² récemment rénové dans une demeure du XVIII ème est un lieu paisible et authentique, offrant tout le confort et meublé avec soin, pouvant accueillir une famille de 4 à 5 personnes.</p>
           <p>Il est situé au 1er étage d'une dépendance attenante à la résidence des propriétaires. De la cour commune, vous accédez par une entrée indépendante à l'appartement soit en empruntant un escalier ou un ascenseur intérieur pour les personnes à mobilité réduite. Le gîte se compose ensuite d'une entrée, d'un coin cuisine donnant sur le sejour-salle à manger, d'une grande chambre, une salle d'eau et wc indépendant.</p>
-          <a id="voir-plus" href="#under-presentation" class="button button-gold">VOIR PLUS</a>
+          <a id="voir-plus" class="button button-gold">VOIR PLUS</a>
         </div>
       </div>
     </div>
@@ -154,16 +153,89 @@
 
     <!-- Activités -->
     <div id="activities" class="activities container-fluid">
-      <div class="col-lg-7 content-side">
+      <div class="content-side">
         <div class="content">
-          <h1>DECOUVREZ LES SOMPTUEUX CHATEAUX DE LA LOIRE</h1>
+          <h1>Découvrez les somptueux châteaux de la Loire</h1>
           <div class="text">
-            <p>Situé dans le triangle d'or du châteaux de Chambord, de Blois et de Cheverny, vous pourrez aisément profiter d'une balade à vélo dans la région des châteaux de la Loire.</p>
+            <p>Situé dans le triangle d'or des châteaux de Chambord, de Blois et de Cheverny, vous pourrez aisément profiter d'une balade à vélo dans la région des châteaux de la Loire.</p>
             <p>Ne manquez pas une occasion de sortir et découvrez les évènements de la région tout au long de l'année.</p>
           </div>
         </div>
-        <a href="#activities" class="button button-white">DECOUVRIR</a>
+        <a id="decouvrir" class="button button-gold-shadow">DECOUVRIR</a>
       </div>
+      <div class="activities-list">
+        <div class="container-fluid">
+          <table>
+            <tr>
+              <td>
+                <div onclick="document.location.href = 'https://www.chateaudeblois.fr/2052-son-et-lumiere.htm'" class="activity">
+                  <img src="assets/images/son_lumiere_blois.jpg" alt="Spectacle son et lumière de Blois">
+                  <div class="content">
+                    <h3>Spectacle son et lumière de Blois</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <div class="more">
+                      <svg viewBox="0 0 31.49 31.49">
+                        <path style="fill:#1E201D;" d="M21.205,5.007c-0.429-0.444-1.143-0.444-1.587,0c-0.429,0.429-0.429,1.143,0,1.571l8.047,8.047H1.111
+                        	C0.492,14.626,0,15.118,0,15.737c0,0.619,0.492,1.127,1.111,1.127h26.554l-8.047,8.032c-0.429,0.444-0.429,1.159,0,1.587
+                        	c0.444,0.444,1.159,0.444,1.587,0l9.952-9.952c0.444-0.429,0.444-1.143,0-1.571L21.205,5.007z"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="activity">
+                  <img src="assets/images/sully_sur_loire.jpg" alt="Château de Sully-sur-Loire">
+                  <div class="content">
+                    <h3>Les châteaux de la Loire</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <div class="more">
+                      <svg viewBox="0 0 31.49 31.49">
+                        <path style="fill:#1E201D;" d="M21.205,5.007c-0.429-0.444-1.143-0.444-1.587,0c-0.429,0.429-0.429,1.143,0,1.571l8.047,8.047H1.111
+                        	C0.492,14.626,0,15.118,0,15.737c0,0.619,0.492,1.127,1.111,1.127h26.554l-8.047,8.032c-0.429,0.444-0.429,1.159,0,1.587
+                        	c0.444,0.444,1.159,0.444,1.587,0l9.952-9.952c0.444-0.429,0.444-1.143,0-1.571L21.205,5.007z"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="activity">
+                  <img src="assets/images/chasse_sologne.jpg" alt="Chasse en Sologne">
+                  <div class="content">
+                    <h3>Chasser en Sologne</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <div class="more">
+                      <svg viewBox="0 0 31.49 31.49">
+                        <path style="fill:#1E201D;" d="M21.205,5.007c-0.429-0.444-1.143-0.444-1.587,0c-0.429,0.429-0.429,1.143,0,1.571l8.047,8.047H1.111
+                        	C0.492,14.626,0,15.118,0,15.737c0,0.619,0.492,1.127,1.111,1.127h26.554l-8.047,8.032c-0.429,0.444-0.429,1.159,0,1.587
+                        	c0.444,0.444,1.159,0.444,1.587,0l9.952-9.952c0.444-0.429,0.444-1.143,0-1.571L21.205,5.007z"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="activity">
+                  <img src="assets/images/bateau_blois.jpg" alt="Balade sur la Loire">
+                  <div class="content">
+                    <h3>Balade sur la Loire</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <div class="more">
+                      <svg viewBox="0 0 31.49 31.49">
+                        <path style="fill:#1E201D;" d="M21.205,5.007c-0.429-0.444-1.143-0.444-1.587,0c-0.429,0.429-0.429,1.143,0,1.571l8.047,8.047H1.111
+                        	C0.492,14.626,0,15.118,0,15.737c0,0.619,0.492,1.127,1.111,1.127h26.554l-8.047,8.032c-0.429,0.444-0.429,1.159,0,1.587
+                        	c0.444,0.444,1.159,0.444,1.587,0l9.952-9.952c0.444-0.429,0.444-1.143,0-1.571L21.205,5.007z"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="return" id="return-activities"></div>
     </div>
 
     <!-- Carousel portfolio -->
@@ -192,52 +264,11 @@
       <div class="map" id="map"></div>
     </div>
 
-    <!-- <div id="contact" class="contact">
-      <div class="container">
-        <h1>Nous contacter</h1>
-        <div class="col-lg-6">
-          <div id="map">
-
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="double-link">
-            <img src="assets/svg/home.svg" alt="">
-            <div class="double-link-content">
-              <span>Adresse postale</span>
-              <p>12 rue du Dr Audy, 41 350 Huisseau-sur-Cosson</p>
-            </div>
-          </div>
-          <div class="double-link">
-            <img src="assets/svg/mail.svg" alt="">
-            <div class="double-link-content">
-              <span>Adresse mail</span>
-              <a href="#">unmailaupif@gmail.com</a>
-            </div>
-          </div>
-          <div class="double-link">
-            <img src="assets/svg/telephone.svg" alt="">
-            <div class="double-link-content">
-              <span>Téléphone</span>
-              <p>+336 48 15 16 23 42</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-    <!-- Reservation -->
-    <div id="reservation" class="presentation container-fluid">
-      <div class="col-lg-6 text-side">
-        <div class="content">
-          <h1>RESERVEZ EN LIGNE</h1>
-          <a href="#" class="button button-gold">AIRBNB</a>
-          <a href="#" class="button button-gold">ABRITEL</a>
-          <a href="#" class="button button-gold">OFFICE DU TOURISME</a>
-        </div>
-      </div>
-      <div class="col-lg-6 picture-side">
-        <img src="assets/images/chaumont.jpg" alt="chambord" width="100%">
+    <div class="reservation" id="reservation">
+      <div class="dark-layout">
+        <h1>Réservez dès maintenant</h1>
+        <a class="button button-gold-shadow" target="_blank" title="Réservation sur bloischambord.com" href="https://www.bloischambord.com/planifier/hebergements/locations-saisonnieres/gite-le-clos-audy-340040">OFFICE DU TOURISME</a>
+        <a class="button button-gold-shadow" target="_blank" title="Réservation sur abritel.fr" href="https://www.abritel.fr/location-vacances/p884842">ABRITEL</a>
       </div>
     </div>
 
@@ -248,11 +279,11 @@
           <h1>CONTACTEZ-NOUS</h1>
           <div class="link">
             <span>Email : </span>
-            <a href="mailto:unmailaupif@gmail.com">unmailaupif@gmail.com</a>
+            <a href="mailto:leclos.audy@orange.fr">leclos.audy@orange.fr</a>
           </div>
           <div class="link">
             <span>Téléphone : </span>
-            <a href="#">+33 6 48 15 16 23 42</a>
+            <a href="#">+33 6 79 81 65 79</a>
           </div>
           <div class="link">
             <span>Le val de Chambord</span>

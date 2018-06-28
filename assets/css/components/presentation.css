@@ -7,7 +7,41 @@
 }
 
 @media all and (max-width: 1024px) {
+  .presentation.container-fluid {
+    padding: 0px; }
+    .presentation.container-fluid .picture-side {
+      padding: 0px; }
+    .presentation.container-fluid .text-side {
+      padding: 0px;
+      text-align: justify;
+      font-family: 'LinLibertine_RB', sans-serif; }
+      .presentation.container-fluid .text-side .content {
+        margin: 10%;
+        position: absolute; }
+        .presentation.container-fluid .text-side .content h1 {
+          margin-top: 0px;
+          font-family: 'Helvetica Neue', sans-serif; }
+        .presentation.container-fluid .text-side .content p {
+          margin-bottom: 30px; }
+}
 
+@media all and (max-width: 1319px) {
+  .presentation.container-fluid {
+    padding: 0px; }
+    .presentation.container-fluid .picture-side {
+      padding: 0px; }
+    .presentation.container-fluid .text-side {
+      padding: 0px;
+      text-align: justify;
+      font-family: 'LinLibertine_RB', sans-serif; }
+      .presentation.container-fluid .text-side .content {
+        margin: 10%;
+        position: absolute; }
+        .presentation.container-fluid .text-side .content h1 {
+          margin-top: 0px;
+          font-family: 'Helvetica Neue', sans-serif; }
+        .presentation.container-fluid .text-side .content p {
+          margin-bottom: 30px; }
 }
 
 @media all and (min-width: 1320px) {
@@ -26,5 +60,6 @@
           margin-top: 0px;
           font-family: 'Helvetica Neue', sans-serif; }
         .presentation.container-fluid .text-side .content p {
+          color: #333;
           margin-bottom: 30px; }
 }

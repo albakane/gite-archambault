@@ -184,7 +184,9 @@ document.addEventListener('DOMContentLoaded', function () {
   })
 
   let voirPlus = document.querySelector('#voir-plus')
+  let decouvrir = document.querySelector('#decouvrir')
   let returnPresentation = document.querySelector('#return-presentation')
+  let returnActivities = document.querySelector('#return-activities')
   let navbar = document.querySelector('#mainMenu')
 
   voirPlus.addEventListener('click', function () {
@@ -192,9 +194,19 @@ document.addEventListener('DOMContentLoaded', function () {
     voirPlus.style.display = "none"
   })
 
+  decouvrir.addEventListener('click', function() {
+    document.querySelector('.activities').classList.add('clicked')
+    decouvrir.style.display = "none"
+  })
+
   returnPresentation.addEventListener('click', function () {
     document.querySelector('#under-presentation').classList.remove('clicked')
     voirPlus.style.display = "inline"
+  })
+
+  returnActivities.addEventListener('click', function () {
+    document.querySelector('.activities').classList.remove('clicked')
+    decouvrir.style.display = 'inline'
   })
 
   window.addEventListener('scroll', function () {

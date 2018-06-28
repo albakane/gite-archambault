@@ -8,6 +8,7 @@
 @import "components/under-presentation.css";
 @import "components/navbar.css";
 @import "components/contact.css";
+@import "components/reservation.css";
 
 @font-face {
   src: url("../fonts/linux_libertine/LinLibertine_R.ttf");
@@ -29,6 +30,6 @@
 
 }
 
-@media all and (max-width: 1320px) {
+@media all and (min-width: 1320px) {
 
 }

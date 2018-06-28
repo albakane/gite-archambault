@@ -7,38 +7,117 @@
 }
 
 @media all and (max-width: 1024px) {
+  .button {
+    transition: all 0.2s;
+    padding: 10px 30px;
+    margin: 0px 20px;
+    font-size: 3rem;
+    text-decoration: none;
+    font-family: 'Helvetica Neue', sans-serif; }
 
+    /* Gold button */
+    .button.button-gold {
+      color: #fff;
+      background-color: #f6d38f; }
+    .button.button-gold:hover {
+      text-decoration: none;
+      background-color: #bc9954; }
+    .button.button-gold:focus, .button.button-gold:active {
+      text-decoration: none;
+      background-color: #f6d38f; }
+
+    /* Gold button with shadow */
+    .button.button-gold-shadow {
+      color: #fff;
+      box-shadow: 0px 0px 40px #000;
+      background-color: #f6d38f; }
+    .button.button-gold-shadow:hover {
+      text-decoration: none;
+      box-shadow: 0px 0px 20px #000; }
+    .button.button-gold-shadow:focus, .button.button-gold-shadow:active {
+      text-decoration: none;
+      box-shadow: 0px 0px 40px #000; }
+}
+
+@media all and (max-width: 1319px) {
+  .button {
+    transition: all 0.2s;
+    padding: 10px 30px;
+    margin: 0px 20px;
+    font-size: 3rem;
+    text-decoration: none;
+    font-family: 'Helvetica Neue', sans-serif; }
+
+    /* Gold button */
+    .button.button-gold {
+      color: #fff;
+      background-color: #f6d38f; }
+    .button.button-gold:hover {
+      text-decoration: none;
+      background-color: #bc9954; }
+    .button.button-gold:focus, .button.button-gold:active {
+      text-decoration: none;
+      background-color: #f6d38f; }
+
+    /* Gold button with shadow */
+    .button.button-gold-shadow {
+      color: #fff;
+      box-shadow: 0px 0px 40px #000;
+      background-color: #f6d38f; }
+    .button.button-gold-shadow:hover {
+      text-decoration: none;
+      box-shadow: 0px 0px 20px #000; }
+    .button.button-gold-shadow:focus, .button.button-gold-shadow:active {
+      text-decoration: none;
+      box-shadow: 0px 0px 40px #000; }
 }
 
 @media all and (min-width: 1320px) {
   .button {
+    cursor: pointer;
     transition: all 0.2s;
     padding: 10px 30px;
-     font-size: 3rem;
-     text-decoration: none;
-     font-family: 'Helvetica Neue', sans-serif; }
+    margin: 0px 20px;
+    font-size: 3rem;
+    text-decoration: none;
+    font-family: 'Helvetica Neue', sans-serif; }
 
-     /* Gold button */
-     .button.button-gold {
-       color: #fff;
-       background-color: #f6d38f; }
-     .button.button-gold:hover {
-       text-decoration: none;
-       background-color: #bc9954; }
-     .button.button-gold:focus, .button.button-gold:active {
-       text-decoration: none;
-       background-color: #f6d38f; }
+    /* Gold button */
+    .button.button-gold {
+      color: #fff;
+      background-color: #f6d38f; }
+    .button.button-gold:hover {
+      text-decoration: none;
+      background-color: #bc9954; }
+    .button.button-gold:focus, .button.button-gold:active {
+      text-decoration: none;
+      background-color: #f6d38f; }
 
-     /* White button */
-     .button.button-white {
-       transition: all 0.2s;
-       color: #fff;
-       background-color: transparent;
-       border: 3px solid #fff; }
-     .button.button-white:hover {
-       border-radius: 13% / 50%;
-       text-decoration: none; }
-     .button.button-white:focus, .button.button-white:active {
-       color: #fff;
-       text-decoration: none; }
+    /* Gold button with shadow */
+    .button.button-gold-shadow {
+      color: #fff;
+      box-shadow: 0px 0px 40px #000;
+      background-color: #f6d38f; }
+    .button.button-gold-shadow:hover {
+      text-decoration: none;
+      box-shadow: 0px 0px 20px #000; }
+    .button.button-gold-shadow:focus, .button.button-gold-shadow:active {
+      text-decoration: none;
+      box-shadow: 0px 0px 40px #000; }
+
+  /* return button */
+  .return {
+    z-index: 1000;
+    transition: 0.2s;
+    box-shadow: 0px 0px 20px #000;
+    position: absolute;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 100px; height: 100px;
+    right: 100px; bottom: -50px;
+    transform: rotate(180deg);
+    background: #f6d38f url('../../svg/down-arrow.svg') center center no-repeat;
+    background-size: 60px; }
+  .return:hover {
+    transform: scale(1.2) rotate(180deg); }
 }

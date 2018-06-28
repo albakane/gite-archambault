@@ -7,11 +7,8 @@
 }
 
 @media all and (max-width: 1024px) {
-
-}
-
-@media all and (min-width: 1320px) {
   .under-presentation {
+    position: relative;
     display: none;
     padding: 50px 0px;
     text-align: justify; }
@@ -27,17 +24,73 @@
         transition: 0.2s;
         box-shadow: 0px 0px 20px #000;
         position: absolute;
-        border-radius: 50%;cursor: pointer;
+        border-radius: 50%;
+        cursor: pointer;
         width: 100px; height: 100px;
-        right: 100px;
+        right: 100px; bottom: -50px;
         transform: rotate(180deg);
         background: #f6d38f url('../../svg/down-arrow.svg') center center no-repeat;
         background-size: 60px; }
       .under-presentation .container .return:hover {
         transform: scale(1.2) rotate(180deg); }
 
-      .under-presentation .container ul li {
-        list-style-type: none; }
-      .under-presentation .container ul li::before {
-        content: '- '; }
+        .under-presentation .container ul li {
+          list-style-type: none; }
+        .under-presentation .container ul li::before {
+          content: '- '; }
+}
+
+@media all and (max-width: 1319px) {
+  .under-presentation {
+    position: relative;
+    display: none;
+    padding: 50px 0px;
+    text-align: justify; }
+  .under-presentation.clicked {
+    display: inherit; }
+    .under-presentation .container { }
+      .under-presentation .container h1, .under-presentation .container h2 {
+        text-transform: uppercase;
+        font-family: 'Helvetica Neue', sans-serif; }
+      .under-presentation .container p {
+        font-family: 'LinLibertine_RB', sans-serif; }
+      .under-presentation .container .return {
+        transition: 0.2s;
+        box-shadow: 0px 0px 20px #000;
+        position: absolute;
+        border-radius: 50%;
+        cursor: pointer;
+        width: 100px; height: 100px;
+        right: 100px; bottom: -50px;
+        transform: rotate(180deg);
+        background: #f6d38f url('../../svg/down-arrow.svg') center center no-repeat;
+        background-size: 60px; }
+      .under-presentation .container .return:hover {
+        transform: scale(1.2) rotate(180deg); }
+
+        .under-presentation .container ul li {
+          list-style-type: none; }
+        .under-presentation .container ul li::before {
+          content: '- '; }
+}
+
+@media all and (min-width: 1320px) {
+  .under-presentation {
+    position: relative;
+    display: none;
+    padding: 50px 0px;
+    text-align: justify; }
+  .under-presentation.clicked {
+    display: inherit; }
+    .under-presentation .container { }
+      .under-presentation .container h1, .under-presentation .container h2 {
+        text-transform: uppercase;
+        font-family: 'Helvetica Neue', sans-serif; }
+      .under-presentation .container p {
+        font-family: 'LinLibertine_RB', sans-serif; }
+
+        .under-presentation .container ul li {
+          list-style-type: none; }
+        .under-presentation .container ul li::before {
+          content: '- '; }
 }
