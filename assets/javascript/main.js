@@ -1,3 +1,24 @@
+class Portfolio {
+
+  constructor(element) {
+    this.element = element
+    let children = [].slice.call(element.children)
+    this.items = children.map((child) => {
+      let item = document.createElement('div')
+      item.classList.add('item')
+      item.appendChild(child)
+      let alt = document.createElement('div')
+      alt.classList.add('alt')
+      let p = document.createElement('p')
+      p.innerHTML = child.getAttribute('alt')
+      alt.appendChild(p)
+      item.appendChild(alt)
+      this.element.appendChild(item)
+    })
+  }
+
+}
+
 class Carousel {
 
   constructor (element, options = {}) {
@@ -178,10 +199,116 @@ class CarouselHover {
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  new Carousel(document.querySelector('#portfolio'), {
-    slidesToScroll : 3,
-    slidesVisible  : 3
-  })
+  function activitiesCreation(element) {
+    let children = [].slice.call(element.children)
+    if (/Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      for (var i = 0; i < children.length; i++) {
+        element.appendChild(children[i])
+      }
+    } else {
+      let table = document.createElement('table')
+      let tr = document.createElement('tr')
+      table.appendChild(tr)
+      element.appendChild(table)
+      if (document.querySelector('body').offsetWidth >= 1280) {
+        let index = 0
+        for (var i = 0; i < children.length; i++) {
+          if (index != 4) {
+            let existingTr = document.querySelector('.activities-list .container-fluid table').lastChild
+            let td = document.createElement('td')
+            td.appendChild(children[i])
+            existingTr.appendChild(td)
+            index++
+          } else {
+            let tr = document.createElement('tr')
+            let td = document.createElement('td')
+            td.appendChild(children[i])
+            tr.appendChild(td)
+            table.appendChild(tr)
+            index = 0
+          }
+        }
+      } else if (document.querySelector('body').offsetWidth >= 800 && document.querySelector('body').offsetWidth < 1280) {
+        let index = 0
+        for (var i = 0; i < children.length; i++) {
+          if (index != 3) {
+            let existingTr = document.querySelector('.activities-list .container-fluid table').lastChild
+            let td = document.createElement('td')
+            td.appendChild(children[i])
+            existingTr.appendChild(td)
+            index++
+          } else {
+            let tr = document.createElement('tr')
+            let td = document.createElement('td')
+            td.appendChild(children[i])
+            tr.appendChild(td)
+            table.appendChild(tr)
+            index = 0
+          }
+        }
+      } else if (document.querySelector('body').offsetWidth < 800 && document.querySelector('body').offsetWidth >= 400) {
+        let index = 0
+        for (var i = 0; i < children.length; i++) {
+          if (index != 2) {
+            let existingTr = document.querySelector('.activities-list .container-fluid table').lastChild
+            let td = document.createElement('td')
+            td.appendChild(children[i])
+            existingTr.appendChild(td)
+            index++
+          } else {
+            let tr = document.createElement('tr')
+            let td = document.createElement('td')
+            td.appendChild(children[i])
+            tr.appendChild(td)
+            table.appendChild(tr)
+            index = 0
+          }
+        }
+      } else if (document.querySelector('body').offsetWidth < 400) {
+        let index = 0
+        for (var i = 0; i < children.length; i++) {
+          if (index != 1) {
+            let existingTr = document.querySelector('.activities-list .container-fluid table').lastChild
+            let td = document.createElement('td')
+            td.appendChild(children[i])
+            existingTr.appendChild(td)
+            index++
+          } else {
+            let tr = document.createElement('tr')
+            let td = document.createElement('td')
+            td.appendChild(children[i])
+            tr.appendChild(td)
+            table.appenChild(tr)
+            index = 0
+          }
+        }
+      }
+    }
+  }
+
+  function presentationForMobile(element) {
+    let children = [].slice.call(element.children)
+    element.innerHTML = ''
+    let container = document.createElement('div')
+    container.classList.add('container-presentation')
+    for (var i = 0; i < children.length; i++) {
+      container.appendChild(children[i])
+    }
+    element.appendChild(container)
+  }
+
+  activitiesCreation(document.querySelector('.activities-list .container-fluid'))
+
+  if (/Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    document.body.classList.add('mobile')
+    presentationForMobile(document.querySelector('#presentation'))
+    new Portfolio(document.querySelector('#portfolio'))
+  } else {
+    new Carousel(document.querySelector('#portfolio'), {
+      slidesToScroll : 3,
+      slidesVisible  : 3
+    })
+  }
 
   let voirPlus = document.querySelector('#voir-plus')
   let decouvrir = document.querySelector('#decouvrir')

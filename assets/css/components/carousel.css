@@ -3,10 +3,168 @@
 }
 
 @media all and (max-width: 768px) {
+  /*for smartphone*/
+  .photos { }
+    .photos h1 {
+      font-size: 5rem; }
 
+  body.mobile .portfolio {
+    padding: 0px 50px; }
+    body.mobile .portfolio .item {
+      width: 100%;
+      box-shadow: 0px 0px 20px #000;
+      margin: 25px 0px;
+      position: relative; }
+      body.mobile .portfolio .item img {
+        width: 100%; }
+      body.mobile .portfolio .item .alt {
+        position: absolute;
+        bottom: 0px;
+        width: 100%; height: 100px;
+        background-color: #f6d38f; }
+        body.mobile .portfolio .item .alt p {
+          width: 100%; height: 100%;
+          color: #fff;
+          font-size: 4rem;
+          text-align: center;
+          line-height: 100px; }
+
+  /*small carousel*/
+  .photos {  }
+    .photos h1 {
+      text-transform: uppercase;
+      text-align: center; }
+
+  .carousel {
+    overflow: hidden;
+    padding: 20px 20px;
+    background-color: #fff;
+    position: relative; }
+
+    .carousel .carousel-button {
+      z-index: 1;
+      transition: transform 0.2s;
+      position: absolute;
+      box-shadow: 0px 0px 10px #000;
+      border-radius: 50%;
+      cursor: pointer;
+      width: 50px; height: 50px; }
+    .carousel .carousel-button:hover {
+      transform: scale(1.2); }
+    .carousel .carousel-button.carousel-button-previous {
+      background: #fff url("../../svg/left-arrow.svg") center center no-repeat;
+      background-size: 25px;
+      margin-top: -25px;
+      left: 2.8%; top: 50%; }
+    .carousel .carousel-button.carousel-button-next {
+      background: #fff url("../../svg/right-arrow.svg") center center no-repeat;
+      background-size: 25px;
+      margin-top: -25px;
+      right: 2.8%; top: 50%; }
+
+    .carousel .carousel-container {
+      transition: transform 0.3s; }
+    .carousel .carousel-container::after {
+      content: '';
+      display: table;
+      clear: both; }
+      .carousel .carousel-container .carousel-item {
+        padding: 0px 30px;
+        height: 200px;
+        text-align: center;
+        float: left; }
+        .carousel .carousel-container .carousel-item img {
+          box-shadow: 0px 0px 10px #000;
+          height: 100%;
+          cursor: pointer; }
+
+  /*big carousel*/
+  .carousel-hover.hidden {
+    display: none; }
+
+  .carousel-hover {
+    display: inline;
+    z-index: 2000;
+    position: fixed;
+    top: 0px; left: 0px;
+    width: 100%; height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8); }
+    .carousel-hover .carousel-hover-container {
+      position: absolute;
+      top: 15vh;
+      transition: transform 0.3s; }
+    .carousel-hover .carousel-hover-container::after {
+      content: '';
+      display: table;
+      clear: both; }
+      .carousel-hover .carousel-hover-container .carousel-hover-item {
+        padding: 0px 20px;
+        text-align: center;
+        float: left; }
+        .carousel-hover .carousel-hover-container .carousel-hover-item img {
+          height: 50%; }
+        .carousel-hover .carousel-hover-container .carousel-hover-item p {
+          font-size: 2rem;
+          margin-top: 10px;
+          color: #fff; }
+
+    .carousel-hover .carousel-hover-return {
+      background: transparent url('../../svg/cross.svg') center center no-repeat;
+      background-size: 45px;
+      cursor: pointer;
+      position: absolute;
+      transition: all 0.1s;
+      right: 50px; top: 50px;
+      width: 65px; height: 65px; }
+    .carousel-hover .carousel-hover-return:hover {
+      background-size: 60px; }
+
+    .carousel-hover .carousel-hover-button {
+      position: absolute;
+      height: 70vh; width: 200px;
+      cursor: pointer;
+      transition: all 0.1s;
+      top: 15vh; }
+    .carousel-hover .carousel-hover-button.carousel-hover-button-previous {
+      background: transparent url('../../svg/left-arrow-bold.svg') center center no-repeat;
+      background-size: 80px;
+      left: 0px; }
+    .carousel-hover .carousel-hover-button.carousel-hover-button-previous:hover {
+      background-size: 100px; }
+    .carousel-hover .carousel-hover-button.carousel-hover-button-next {
+      background: transparent url('../../svg/right-arrow-bold.svg') center center no-repeat;
+      background-size: 80px;
+      right: 0px; }
+    .carousel-hover .carousel-hover-button.carousel-hover-button-next:hover {
+      background-size: 100px; }
 }
 
 @media all and (max-width: 1024px) {
+  /*for smartphone*/
+  .photos { }
+    .photos h1 {
+      font-size: 5rem; }
+
+  body.mobile .portfolio {
+    padding: 0px 50px; }
+    body.mobile .portfolio .item {
+      width: 100%;
+      box-shadow: 0px 0px 20px #000;
+      margin: 25px 0px;
+      position: relative; }
+      body.mobile .portfolio .item img {
+        width: 100%; }
+      body.mobile .portfolio .item .alt {
+        position: absolute;
+        bottom: 0px;
+        width: 100%; height: 100px;
+        background-color: rgba(0, 0, 0, 0.7); }
+        body.mobile .portfolio .item .alt p {
+          width: 100%; height: 100%;
+          color: #fff;
+          font-size: 4rem;
+          text-align: center;
+          line-height: 100px; }
 
   /*small carousel*/
   .photos {  }
@@ -49,10 +207,11 @@
       clear: both; }
       .carousel .carousel-container .carousel-item {
         padding: 0px 30px;
-        height: 250px;
+        height: 200px;
         text-align: center;
         float: left; }
         .carousel .carousel-container .carousel-item img {
+          box-shadow: 0px 0px 10px #000;
           height: 100%;
           cursor: pointer; }
 
@@ -62,7 +221,7 @@
 
   .carousel-hover {
     display: inline;
-    z-index: 3;
+    z-index: 2000;
     position: fixed;
     top: 0px; left: 0px;
     width: 100%; height: 100vh;
@@ -117,117 +276,7 @@
       background-size: 100px; }
 }
 
-@media all and (max-width: 1319px) {
-  /*small carousel*/
-  .photos {  }
-    .photos h1 {
-      text-transform: uppercase;
-      text-align: center; }
-
-  .carousel {
-    overflow: hidden;
-    padding: 20px 20px;
-    background-color: #fff;
-    position: relative; }
-
-    .carousel .carousel-button {
-      z-index: 1;
-      transition: transform 0.2s;
-      position: absolute;
-      box-shadow: 0px 0px 10px #000;
-      border-radius: 50%;
-      cursor: pointer;
-      width: 50px; height: 50px; }
-    .carousel .carousel-button:hover {
-      transform: scale(1.2); }
-    .carousel .carousel-button.carousel-button-previous {
-      background: #fff url("../../svg/left-arrow.svg") center center no-repeat;
-      background-size: 25px;
-      margin-top: -25px;
-      left: 2.8%; top: 50%; }
-    .carousel .carousel-button.carousel-button-next {
-      background: #fff url("../../svg/right-arrow.svg") center center no-repeat;
-      background-size: 25px;
-      margin-top: -25px;
-      right: 2.8%; top: 50%; }
-
-    .carousel .carousel-container {
-      transition: transform 0.3s; }
-    .carousel .carousel-container::after {
-      content: '';
-      display: table;
-      clear: both; }
-      .carousel .carousel-container .carousel-item {
-        padding: 0px 30px;
-        height: 250px;
-        text-align: center;
-        float: left; }
-        .carousel .carousel-container .carousel-item img {
-          height: 100%;
-          cursor: pointer; }
-
-  /*big carousel*/
-  .carousel-hover.hidden {
-    display: none; }
-
-  .carousel-hover {
-    display: inline;
-    z-index: 3;
-    position: fixed;
-    top: 0px; left: 0px;
-    width: 100%; height: 100vh;
-    background-color: rgba(0, 0, 0, 0.8); }
-    .carousel-hover .carousel-hover-container {
-      position: absolute;
-      top: 15vh;
-      transition: transform 0.3s; }
-    .carousel-hover .carousel-hover-container::after {
-      content: '';
-      display: table;
-      clear: both; }
-      .carousel-hover .carousel-hover-container .carousel-hover-item {
-        padding: 0px 20px;
-        text-align: center;
-        float: left; }
-        .carousel-hover .carousel-hover-container .carousel-hover-item img {
-          height: 70vh; }
-        .carousel-hover .carousel-hover-container .carousel-hover-item p {
-          font-size: 2rem;
-          margin-top: 10px;
-          color: #fff; }
-
-    .carousel-hover .carousel-hover-return {
-      background: transparent url('../../svg/cross.svg') center center no-repeat;
-      background-size: 45px;
-      cursor: pointer;
-      position: absolute;
-      transition: all 0.1s;
-      right: 50px; top: 50px;
-      width: 65px; height: 65px; }
-    .carousel-hover .carousel-hover-return:hover {
-      background-size: 60px; }
-
-    .carousel-hover .carousel-hover-button {
-      position: absolute;
-      height: 70vh; width: 200px;
-      cursor: pointer;
-      transition: all 0.1s;
-      top: 15vh; }
-    .carousel-hover .carousel-hover-button.carousel-hover-button-previous {
-      background: transparent url('../../svg/left-arrow-bold.svg') center center no-repeat;
-      background-size: 80px;
-      left: 0px; }
-    .carousel-hover .carousel-hover-button.carousel-hover-button-previous:hover {
-      background-size: 100px; }
-    .carousel-hover .carousel-hover-button.carousel-hover-button-next {
-      background: transparent url('../../svg/right-arrow-bold.svg') center center no-repeat;
-      background-size: 80px;
-      right: 0px; }
-    .carousel-hover .carousel-hover-button.carousel-hover-button-next:hover {
-      background-size: 100px; }
-}
-
-@media all and (min-width: 1320px) {
+@media all and (min-width: 1280px) {
 
   /*small carousel*/
   .photos {  }
@@ -284,7 +333,7 @@
 
   .carousel-hover {
     display: inline;
-    z-index: 3;
+    z-index: 2000;
     position: fixed;
     top: 0px; left: 0px;
     width: 100%; height: 100vh;

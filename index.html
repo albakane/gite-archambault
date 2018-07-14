@@ -13,23 +13,62 @@
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYC9Vc1IshWi1gUgNG0n75x7DEQ5XfkKU&callback=initMap" charset="utf-8"></script>
   <script type="text/javascript">
     function initMap() {
-      var leClosAudy = {
+
+      class Marker extends google.maps.OverlayView {
+
+        constructor(map, position, type, content) {
+          super()
+          this.div = null
+          this.content = content
+          this.type = type
+          this.position = position
+          this.setMap(map)
+        }
+
+        onAdd() {
+          this.div = document.createElement('div')
+          this.div.classList.add('marker')
+          this.div.classList.add('marker-' + this.type)
+          this.div.innerHTML = this.content
+          let panes = this.getPanes()
+          panes.mapPane.appendChild(this.div)
+
+        }
+
+        draw() {
+          let overlayProjection = this.getProjection()
+          let position = overlayProjection.fromLatLngToDivPixel(this.position)
+
+          this.div.style.left = position.x + 'px'
+          this.div.style.top = position.y + 'px'
+        }
+
+        onRemove() {
+
+        }
+
+      }
+
+      let leClosAudy = {
         lat : 47.591641,
         lng : 1.453239
       }
-      var flightPlanCoordinates = [
-        {lat : 47.5828745, lng : 1.3315156},
-        {lat : 47.6154998, lng : 1.5155351},
-        {lat : 47.5112682, lng : 1.4560066},
-        {lat : 47.5828745, lng : 1.3315156}
-      ]
-      var flightPath = new google.maps.Polyline({
-        path : flightPlanCoordinates,
-        geodesic : true,
-        strokeColor : '#f6d38f',
-        strokeWeight : 6
-      })
-      var contentString = '<div id="content">'+
+
+      let spots = [{
+        type : 'castle',
+        position : new google.maps.LatLng(47.5854047,1.3304345),
+        content : 'Château de Blois'
+      }, {
+        type : 'castle',
+        position : new google.maps.LatLng(47.6160289,1.5169763),
+        content : 'Château de Chambord'
+      }, {
+        type : 'castle',
+        position : new google.maps.LatLng(47.5001329,1.4578988),
+        content : 'Château de Cheverny'
+      }]
+
+      let contentString = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
         '<h1 id="firstHeading" class="firstHeading">Le clos Audy</h1>'+
@@ -39,21 +78,36 @@
         '<p><b>Email</b> : <a href="mailto:leclos.audy@orange.fr">leclos.audy@orange.fr</a></p>'+
         '</div>'+
         '</div>'
-      var infowindow = new google.maps.InfoWindow({
-        content: contentString
+
+      let infowindow = new google.maps.InfoWindow({
+        content : contentString
       })
-      var map = new google.maps.Map(document.querySelector('#map'), {
+
+      let map = new google.maps.Map(document.querySelector('#map'), {
+        controls : true,
+        draggable : true,
         zoom   : 12,
         center : leClosAudy
       })
-      // flightPath.setMap(map)
-      var marker = new google.maps.Marker({
+      if (/Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        document.querySelector('#map').style.height = '80vh'
+      } else {
+        document.querySelector('#map').style.height = '50vh'
+      }
+
+      let marker = new google.maps.Marker({
         position : leClosAudy,
         map      : map
       })
+
+      for (var i = 0; i < spots.length; i++) {
+        new Marker(map, spots[i].position, spots[i].type, spots[i].content)
+      }
+
       marker.addListener('click', function () {
         infowindow.open(map, marker)
       })
+
       infowindow.open(map, marker)
     }
   </script>
@@ -100,10 +154,10 @@
 
     <!-- Présentation gîte -->
     <div id="presentation" class="presentation container-fluid">
-      <div class="col-lg-6 picture-side">
+      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12 picture-side">
         <img src="assets/images/maison_hote.jpg" alt="maison-hote" width="100%">
       </div>
-      <div class="col-lg-6 text-side">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-side">
         <div class="content">
           <h1>LE CLOS AUDY</h1>
           <p>Au coeur du bourg, clos de murs et derrière une porte cochère, vous découvrirez une agréable cour pavée toujours fleurie au fil des saisons par les camélias, hortensais, glycines, rosiers et chèvre-feuilles. Notre gîte de charme de 75m² récemment rénové dans une demeure du XVIII ème est un lieu paisible et authentique, offrant tout le confort et meublé avec soin, pouvant accueillir une famille de 4 à 5 personnes.</p>
@@ -115,7 +169,7 @@
 
     <div id="under-presentation" class="under-presentation under-presentation-information">
       <div class="container">
-        <h1>Tarif de location du gîte "Le clos Audy" (Saison 2018)</h1>
+        <h1>Tarifs de location du gîte "Le clos Audy" (Saison 2018)</h1>
         <h2>Informations complémentaires sur la location</h2>
         <p>La réservation sera effective au retour du contrat de location signé accompagné d'un acompte de 25% du montant de la location.
         Une affirmation sera adressée par mail ou courrier. Le solde de la location sera demandé à l'arrivée. Une caution de 500 € sera demandée à l'arrivée et sera restituée au départ après état des lieux et déduction faite des frais occasionnés par d'éventuelles dégradations.
@@ -165,74 +219,90 @@
       </div>
       <div class="activities-list">
         <div class="container-fluid">
-          <table>
-            <tr>
-              <td>
-                <div onclick="document.location.href = 'https://www.chateaudeblois.fr/2052-son-et-lumiere.htm'" class="activity">
-                  <img src="assets/images/son_lumiere_blois.jpg" alt="Spectacle son et lumière de Blois">
-                  <div class="content">
-                    <h3>Spectacle son et lumière de Blois</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <div class="more">
-                      <svg viewBox="0 0 31.49 31.49">
-                        <path style="fill:#1E201D;" d="M21.205,5.007c-0.429-0.444-1.143-0.444-1.587,0c-0.429,0.429-0.429,1.143,0,1.571l8.047,8.047H1.111
-                        	C0.492,14.626,0,15.118,0,15.737c0,0.619,0.492,1.127,1.111,1.127h26.554l-8.047,8.032c-0.429,0.444-0.429,1.159,0,1.587
-                        	c0.444,0.444,1.159,0.444,1.587,0l9.952-9.952c0.444-0.429,0.444-1.143,0-1.571L21.205,5.007z"/>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td>
-                <div class="activity">
-                  <img src="assets/images/sully_sur_loire.jpg" alt="Château de Sully-sur-Loire">
-                  <div class="content">
-                    <h3>Les châteaux de la Loire</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <div class="more">
-                      <svg viewBox="0 0 31.49 31.49">
-                        <path style="fill:#1E201D;" d="M21.205,5.007c-0.429-0.444-1.143-0.444-1.587,0c-0.429,0.429-0.429,1.143,0,1.571l8.047,8.047H1.111
-                        	C0.492,14.626,0,15.118,0,15.737c0,0.619,0.492,1.127,1.111,1.127h26.554l-8.047,8.032c-0.429,0.444-0.429,1.159,0,1.587
-                        	c0.444,0.444,1.159,0.444,1.587,0l9.952-9.952c0.444-0.429,0.444-1.143,0-1.571L21.205,5.007z"/>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td>
-                <div class="activity">
-                  <img src="assets/images/chasse_sologne.jpg" alt="Chasse en Sologne">
-                  <div class="content">
-                    <h3>Chasser en Sologne</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <div class="more">
-                      <svg viewBox="0 0 31.49 31.49">
-                        <path style="fill:#1E201D;" d="M21.205,5.007c-0.429-0.444-1.143-0.444-1.587,0c-0.429,0.429-0.429,1.143,0,1.571l8.047,8.047H1.111
-                        	C0.492,14.626,0,15.118,0,15.737c0,0.619,0.492,1.127,1.111,1.127h26.554l-8.047,8.032c-0.429,0.444-0.429,1.159,0,1.587
-                        	c0.444,0.444,1.159,0.444,1.587,0l9.952-9.952c0.444-0.429,0.444-1.143,0-1.571L21.205,5.007z"/>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td>
-                <div class="activity">
-                  <img src="assets/images/bateau_blois.jpg" alt="Balade sur la Loire">
-                  <div class="content">
-                    <h3>Balade sur la Loire</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <div class="more">
-                      <svg viewBox="0 0 31.49 31.49">
-                        <path style="fill:#1E201D;" d="M21.205,5.007c-0.429-0.444-1.143-0.444-1.587,0c-0.429,0.429-0.429,1.143,0,1.571l8.047,8.047H1.111
-                        	C0.492,14.626,0,15.118,0,15.737c0,0.619,0.492,1.127,1.111,1.127h26.554l-8.047,8.032c-0.429,0.444-0.429,1.159,0,1.587
-                        	c0.444,0.444,1.159,0.444,1.587,0l9.952-9.952c0.444-0.429,0.444-1.143,0-1.571L21.205,5.007z"/>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </td>
-            </tr>
-          </table>
+          <div onclick="document.location.href = 'https://www.chateaudeblois.fr/2052-son-et-lumiere.htm'" class="activity">
+            <img src="assets/images/son_lumiere_blois.jpg" alt="Spectacle son et lumière de Blois">
+            <div class="content">
+              <h3>Spectacle son et lumière de Blois</h3>
+              <p>Un château qui s'effondre, qui tremble face à Catherine de Médicis, ou encore un Duc de Guise plus vivant que jamais. Tout ce qui vous attend au spectacle son et lumière de Blois, édition 2018.</p>
+              <div class="more">
+                <svg viewBox="0 0 31.49 31.49">
+                  <path style="fill:#1E201D;" d="M21.205,5.007c-0.429-0.444-1.143-0.444-1.587,0c-0.429,0.429-0.429,1.143,0,1.571l8.047,8.047H1.111
+                    C0.492,14.626,0,15.118,0,15.737c0,0.619,0.492,1.127,1.111,1.127h26.554l-8.047,8.032c-0.429,0.444-0.429,1.159,0,1.587
+                    c0.444,0.444,1.159,0.444,1.587,0l9.952-9.952c0.444-0.429,0.444-1.143,0-1.571L21.205,5.007z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div onclick="document.location.href = 'https://www.valdeloire-france.com/loire-chateaux'" class="activity">
+            <img src="assets/images/sully_sur_loire.jpg" alt="Château de Sully-sur-Loire">
+            <div class="content">
+              <h3>Les châteaux de la Loire</h3>
+              <p>Venez visiter la collection des 22 châteaux et grands sites du Val de Loire qui vous dévoileront les chapitres fondamentaux de l'Histoire de France.</p>
+              <div class="more">
+                <svg viewBox="0 0 31.49 31.49">
+                  <path style="fill:#1E201D;" d="M21.205,5.007c-0.429-0.444-1.143-0.444-1.587,0c-0.429,0.429-0.429,1.143,0,1.571l8.047,8.047H1.111
+                    C0.492,14.626,0,15.118,0,15.737c0,0.619,0.492,1.127,1.111,1.127h26.554l-8.047,8.032c-0.429,0.444-0.429,1.159,0,1.587
+                    c0.444,0.444,1.159,0.444,1.587,0l9.952-9.952c0.444-0.429,0.444-1.143,0-1.571L21.205,5.007z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div onclick="document.location.href = 'http://www.chasse-en-sologne.fr/'" class="activity">
+            <img src="assets/images/chasse_sologne.jpg" alt="Chasse en Sologne">
+            <div class="content">
+              <h3>Chasser en Sologne</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <div class="more">
+                <svg viewBox="0 0 31.49 31.49">
+                  <path style="fill:#1E201D;" d="M21.205,5.007c-0.429-0.444-1.143-0.444-1.587,0c-0.429,0.429-0.429,1.143,0,1.571l8.047,8.047H1.111
+                    C0.492,14.626,0,15.118,0,15.737c0,0.619,0.492,1.127,1.111,1.127h26.554l-8.047,8.032c-0.429,0.444-0.429,1.159,0,1.587
+                    c0.444,0.444,1.159,0.444,1.587,0l9.952-9.952c0.444-0.429,0.444-1.143,0-1.571L21.205,5.007z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div onclick="document.location.href = 'https://www.bloischambord.com/planifier/loisirs/activites-nature/promenade-en-bateau-traditionnel-249296'" class="activity">
+            <img src="assets/images/bateau_blois.jpg" alt="Balade sur la Loire">
+            <div class="content">
+              <h3>Balade sur la Loire</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <div class="more">
+                <svg viewBox="0 0 31.49 31.49">
+                  <path style="fill:#1E201D;" d="M21.205,5.007c-0.429-0.444-1.143-0.444-1.587,0c-0.429,0.429-0.429,1.143,0,1.571l8.047,8.047H1.111
+                    C0.492,14.626,0,15.118,0,15.737c0,0.619,0.492,1.127,1.111,1.127h26.554l-8.047,8.032c-0.429,0.444-0.429,1.159,0,1.587
+                    c0.444,0.444,1.159,0.444,1.587,0l9.952-9.952c0.444-0.429,0.444-1.143,0-1.571L21.205,5.007z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div onclick="document.location.href = 'https://www.valdeloire-france.com/loire-chateaux'" class="activity">
+            <img src="assets/images/sully_sur_loire.jpg" alt="Château de Sully-sur-Loire">
+            <div class="content">
+              <h3>Les châteaux de la Loire</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <div class="more">
+                <svg viewBox="0 0 31.49 31.49">
+                  <path style="fill:#1E201D;" d="M21.205,5.007c-0.429-0.444-1.143-0.444-1.587,0c-0.429,0.429-0.429,1.143,0,1.571l8.047,8.047H1.111
+                    C0.492,14.626,0,15.118,0,15.737c0,0.619,0.492,1.127,1.111,1.127h26.554l-8.047,8.032c-0.429,0.444-0.429,1.159,0,1.587
+                    c0.444,0.444,1.159,0.444,1.587,0l9.952-9.952c0.444-0.429,0.444-1.143,0-1.571L21.205,5.007z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div onclick="document.location.href = 'https://www.chateaudeblois.fr/2052-son-et-lumiere.htm'" class="activity">
+            <img src="assets/images/son_lumiere_blois.jpg" alt="Spectacle son et lumière de Blois">
+            <div class="content">
+              <h3>Spectacle son et lumière de Blois</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <div class="more">
+                <svg viewBox="0 0 31.49 31.49">
+                  <path style="fill:#1E201D;" d="M21.205,5.007c-0.429-0.444-1.143-0.444-1.587,0c-0.429,0.429-0.429,1.143,0,1.571l8.047,8.047H1.111
+                    C0.492,14.626,0,15.118,0,15.737c0,0.619,0.492,1.127,1.111,1.127h26.554l-8.047,8.032c-0.429,0.444-0.429,1.159,0,1.587
+                    c0.444,0.444,1.159,0.444,1.587,0l9.952-9.952c0.444-0.429,0.444-1.143,0-1.571L21.205,5.007z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="return" id="return-activities"></div>
@@ -275,7 +345,7 @@
     <!-- About -->
     <footer id="about" class="about">
       <div class="container">
-        <div class="content contact-us col-lg-4">
+        <div class="content contact-us col-lg-4 col-md-4 col-sm-4 col-xs-4">
           <h1>CONTACTEZ-NOUS</h1>
           <div class="link">
             <span>Email : </span>
@@ -290,10 +360,10 @@
             <a href="#">levaldechambord.fr</a>
           </div>
         </div>
-        <div class="logo col-lg-4">
+        <div class="logo col-lg-4 col-md-4 col-sm-4 col-xs-4">
           <img src="assets/svg/logo-dark.svg" alt="logo-dark" width="200">
         </div>
-        <div class="content social col-lg-4">
+        <div class="content social col-lg-4 col-md-4 col-sm-4 col-xs-4">
           <h1>A PROPOS</h1>
           <div class="link">
             <span>Facebook : </span>

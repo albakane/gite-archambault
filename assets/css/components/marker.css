@@ -1,0 +1,18 @@
+.marker {
+  width: 200px; height: 30px;
+  background-color: #fff;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  line-height: 30px;
+  text-align: center;
+  vertical-align: center;
+  font-size: 1.5rem;
+  margin-top: -38px; margin-left: -100px;
+  position: absolute; }
+.marker::after {
+  width: 0; height: 0;
+  content: '';
+  position: absolute;
+  top: 100%; left: 50%;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #fff; }
