@@ -6,10 +6,10 @@
 
 }
 
-@media all and (min-width: 768px) {
+@media all and (min-width: 768px) and (max-width: 1280px) {
   body.mobile .activities {
     position: relative;
-    background-image: url('../../images/joute_red_effect.jpg');
+    background-image: url('../../images/joute-red-effect.jpg');
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: 20% 20%;
@@ -64,7 +64,7 @@
 
   .activities {
     position: relative;
-    background-image: url("../../images/joute_red_effect.jpg");
+    background-image: url("../../images/joute-red-effect.jpg");
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: 20% 20%;
@@ -89,7 +89,7 @@
       display: inline; }
 
     .activities .activities-list {
-      display: none;
+      /* display: none; */
       margin-bottom: 80px; }
     .activities.clicked .activities-list {
       display: inherit; }
@@ -130,7 +130,7 @@
 @media all and (min-width: 1280px) {
   body.mobile .activities {
     position: relative;
-    background-image: url('../../images/joute_red_effect.jpg');
+    background-image: url('../../images/joute-red-effect.jpg');
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: 20% 20%;
@@ -175,7 +175,7 @@
 
   .activities {
     position: relative;
-    background-image: url("../../images/joute_red_effect.jpg");
+    background-image: url("../../images/joute-red-effect.jpg");
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: 20% 20%;
